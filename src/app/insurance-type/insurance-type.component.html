@@ -1,0 +1,67 @@
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<div class="input-group mb-3">
+  <div class="input-group-prepend">
+    <label class="input-group-text" for="inputGroupSelect01">Options</label>
+  </div>
+<select *ngIf="typeToUpdate == null" class="custom-select" id="inputGroupSelect01" [(ngModel)]="field" name="fieldToSearch">
+  <option value="id">Search by ID</option>
+  <option value="name">Search by Name</option>
+</select>
+</div>
+<br>
+<div class="input-group">
+  <input *ngIf="typeToUpdate == null" class="form-control" type="text" [(ngModel)]="value" placeholder="Search" name="valueToSearch" aria-describedby="button-addon4"/>
+</div>
+<br>
+<div class="input-group-append" id="button-addon4">
+  <button *ngIf="typeToUpdate == null" class="btn btn-outline-secondary" (click)="find()">Search</button>
+  <button *ngIf="typeToUpdate == null" class="btn btn-outline-secondary" (click)="load()">Cancel</button>
+</div>
+<br>
+<form *ngIf="typeToUpdate == null" name="form" (ngSubmit)="f.form.valid && add(f)" #f="ngForm" novalidate>
+  <input class="form-control" type="text" [(ngModel)]="type.name" name="name" placeholder="Name of Type" required/>
+  <br>
+  <input class="form-control" type="number" [(ngModel)]="type.agentPercent" name="agentPercent" placeholder="agentPercent" required/>
+  <br>
+  <button class="btn btn-primary">Add</button>
+  <br>
+</form>
+<br>
+<table class="table">
+  <thead align="center">
+  <th>ID</th>
+  <th>Name</th>
+  <th>AgentPercent</th>
+  <th>Delete</th>
+  <th>Edit</th>
+  </thead>
+  <tbody>
+  <tr *ngFor="let row of types" align="center">
+    <td>
+      <span *ngIf="typeToUpdate == null || typeToUpdate.id !=row.id">{{row.id}}</span>
+      <span *ngIf="typeToUpdate !=null && typeToUpdate.id == row.id">
+        <input class="form-control" type="text" [(ngModel)]="typeToUpdate.id" name="idUpd"/>
+      </span>
+    </td>
+    <td>
+      <span *ngIf="typeToUpdate == null || typeToUpdate.id !=row.id">{{row.name}}</span>
+      <span *ngIf="typeToUpdate != null && typeToUpdate.id == row.id">
+        <input class="form-control" type="text" [(ngModel)]="typeToUpdate.name" name="nameUpd"/>
+      </span>
+    </td>
+    <td>
+      <span *ngIf="typeToUpdate == null || typeToUpdate.id !=row.id">{{row.agentPercent}}</span>
+      <span *ngIf="typeToUpdate !=null && typeToUpdate.id == row.id">
+        <input class="form-control" type="number" [(ngModel)]="typeToUpdate.agentPercent" name="percentUpd"/>
+      </span>
+    </td>
+    <td *ngIf="typeToUpdate == null">
+      <button class="btn btn-outline-danger" (click)="delete(row.id)">Delete</button>
+    </td>
+    <td *ngIf="typeToUpdate == null">
+      <button class="btn btn-outline-warning" (click)="update(row)">Edit</button>
+    </td>
+  </tr>
+  </tbody>
+</table>
+<button *ngIf="typeToUpdate != null" class="btn btn-primary" (click)="save()">Save</button>
