@@ -30,4 +30,14 @@ export class AgentService {
   find(field: string, value: string) {
     return this.http.get(`${this.baseUrl}/find/${field}/${value}`);
   }
+
+  salaryOfAgent(name: string) {
+    return this.http.get(`${this.baseUrl}/salary/${name}`);
+  }
+
+  totalSalary() {
+    return this.http.get(`${this.baseUrl}/salary`);
+  }
+
+
 }

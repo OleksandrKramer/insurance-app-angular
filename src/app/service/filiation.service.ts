@@ -32,5 +32,9 @@ export class FiliationService {
     return this.http.get(`${this.baseUrl}/find/${field}/${value}`);
   }
 
+  incomeOfFiliationPerMonth(date: string = ``) {
+    return this.http.get(`${this.baseUrl}/income/${date}`);
+  }
+
 
 }
