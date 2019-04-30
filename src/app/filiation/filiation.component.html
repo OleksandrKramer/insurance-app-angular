@@ -1,0 +1,88 @@
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<br>
+<h2>Search Options</h2>
+<div class="input-group mb-3">
+  <div class="input-group-prepend">
+    <label class="input-group-text" for="inputGroupSelect01">Options</label>
+  </div>
+  <select *ngIf="typeToUpdate == null" class="custom-select" id="inputGroupSelect01" [(ngModel)]="field" name="fieldToSearch">
+    <option value="name">Search by Name</option>
+    <option value="phone">Search by Phone</option>
+    <option value="address">Search by Address</option>
+  </select>
+</div>
+<br>
+<div class="input-group">
+  <input *ngIf="filToUpdate == null" class="form-control" type="text" [(ngModel)]="value" placeholder="Search" name="valueToSearch" aria-describedby="button-addon4"/>
+</div>
+<br>
+<div class="input-group-append" id="button-addon4">
+  <button *ngIf="filToUpdate == null" class="btn btn-outline-secondary" (click)="find()">Search</button>
+  <button *ngIf="filToUpdate == null" class="btn btn-outline-secondary" (click)="load()">Cancel</button>
+</div>
+<br>
+<h2>Add Filiation</h2>
+<form *ngIf="filToUpdate == null" name="form" (ngSubmit)="f.form.valid && add(f)" #f="ngForm" novalidate>
+  <input class="form-control" type="text" [(ngModel)]="filiation.name" name="name" placeholder="Filiation's name" required/>
+  <br>
+  <input class="form-control" type="text" [(ngModel)]="filiation.phone" name="phone" placeholder="Filiation's phone" required/>
+  <br>
+  <input class="form-control" type="text" [(ngModel)]="filiation.address" name="address" placeholder="Filiation's address" required/>
+  <button class="btn btn-primary">Add</button>
+  <br>
+</form>
+<br>
+<table class="table">
+  <thead align="center">
+  <th>ID</th>
+  <th>Name</th>
+  <th>Phone</th>
+  <th>Address</th>
+  <th>Delete</th>
+  <th>Edit</th>
+  </thead>
+  <tbody>
+
+  <tr *ngFor="let row of filiations" align="center">
+    <td>
+      <span *ngIf="filToUpdate == null || filToUpdate.id !=row.id">{{row.id}}</span>
+      <span *ngIf="filToUpdate !=null && filToUpdate.id == row.id">
+        <input class="form-control" type="text" [(ngModel)]="filToUpdate.id" name="idUpd"/>
+      </span>
+    </td>
+    <td>
+      <span *ngIf="filToUpdate == null || filToUpdate.id !=row.id">{{row.name}}</span>
+      <span *ngIf="filToUpdate != null && filToUpdate.id == row.id">
+        <input class="form-control" type="text" [(ngModel)]="filToUpdate.name" name="nameUpd"/>
+      </span>
+    </td>
+    <td>
+      <span *ngIf="filToUpdate == null || filToUpdate.id !=row.id">{{row.phone}}</span>
+      <span *ngIf="filToUpdate !=null && filToUpdate.id == row.id">
+        <input class="form-control" type="text" [(ngModel)]="filToUpdate.phone" name="phoneUpd"/>
+      </span>
+    </td>
+  <td>
+    <span *ngIf="filToUpdate == null || filToUpdate.id !=row.id">{{row.address}}</span>
+    <span *ngIf="filToUpdate !=null && filToUpdate.id == row.id">
+        <input class="form-control" type="text" [(ngModel)]="filToUpdate.address" name="addressUpd"/>
+      </span>
+  </td>
+    <td *ngIf="filToUpdate == null">
+      <button class="btn btn-outline-danger" (click)="delete(row.id)">Delete</button>
+    </td>
+    <td *ngIf="filToUpdate == null">
+      <button class="btn btn-outline-warning" (click)="update(row)">Edit</button>
+    </td>
+  </tbody>
+</table>
+<h3>Income is {{income}}</h3>
+<input *ngIf="supplyToUpdate == null" class="form-control" type="date" [(ngModel)]="date" name="income" />
+
+<button *ngIf="filToUpdate == null " class="btn btn-primary" (click)="incomePerMonth(date)">Count</button>
+<br><br>
+
+
+<button *ngIf="filToUpdate != null" class="btn btn-primary" (click)="save()">Save</button>
+
+

@@ -11,12 +11,14 @@ import {HttpClient, HttpClientModule} from '@angular/common/http';
 import {FormsModule} from '@angular/forms';
 import { AgentComponent } from './agent/agent.component';
 import { InsuranceTypeComponent } from './insurance-type/insurance-type.component';
+import { FiliationComponent } from './filiation/filiation.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     AgentComponent,
-    InsuranceTypeComponent
+    InsuranceTypeComponent,
+    FiliationComponent
   ],
   imports: [
     BrowserModule,

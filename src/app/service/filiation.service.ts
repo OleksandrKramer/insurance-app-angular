@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Filiation} from '../model/filiation';
+import {Observable} from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -33,7 +34,7 @@ export class FiliationService {
   }
 
   incomeOfFiliationPerMonth(date: string = ``) {
-    return this.http.get(`${this.baseUrl}/income/${date}`);
+    return this.http.get(`${this.baseUrl}/income/${date}`) as Observable<number>;
   }
 
 

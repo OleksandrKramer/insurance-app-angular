@@ -1,5 +1,6 @@
 <h1>Managment System of Insurance Company</h1>
 <nav>
-  <a [routerLink]="['/insurancetype']" (click)="select(1)" [ngClass]="selected == 1 ? 'selected' : ''">InsuranceTypeList</a>
+  <a [routerLink]="['/insurancetype']" (click)="select(1)" [ngClass]="selected == 1 ? 'selected' : ''">Insurance Type List</a>
+  <a [routerLink]="['/filiation']" (click)="select(2)" [ngClass]="selected == 2 ? 'selected': ''">Filiation List</a>
 </nav>
 <router-outlet></router-outlet>
