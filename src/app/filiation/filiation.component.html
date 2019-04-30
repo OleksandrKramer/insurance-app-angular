@@ -79,7 +79,7 @@
 <h3>Income is {{income}}</h3>
 <input *ngIf="supplyToUpdate == null" class="form-control" type="date" [(ngModel)]="date" name="income" />
 
-<button *ngIf="filToUpdate == null " class="btn btn-primary" (click)="incomePerMonth(date)">Count</button>
+<button *ngIf="filToUpdate == null " class="btn btn-primary" (click)="incomeByDate(date)">Count</button>
 <br><br>
 
 

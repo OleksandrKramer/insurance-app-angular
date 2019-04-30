@@ -61,12 +61,12 @@ export class FiliationComponent implements OnInit {
     });
   }
 
-  incomePerMonth(date: string = '') {
-    this.filiationService.incomeOfFiliationPerMonth().subscribe(data => {
+  incomeByDate(date: string = '') {
+    this.filiationService.incomeOfFiliationPerMonth(this.date).subscribe(data => {
       if ( date === '') {
         this.income = data;
       } else {
-        window.alert(`Income in (${this.date}): ${data}`);
+        window.alert(`Income in (${this.date}): ${data} gryven`);
       }
     });
   }
