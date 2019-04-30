@@ -1,37 +1,35 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import {Contract} from '../model/contract';
+import {InsuranceType} from '../model/insuranceType';
 
 @Injectable({
   providedIn: 'root'
 })
-export class ContractService {
+export class InsuranceTypeService {
 
-  baseUrl = 'http://localhost:8080/api/contract';
+  baseUrl = 'http://localhost:8080/api/insurancetype';
 
   constructor(private http: HttpClient) { }
 
 
-  getContrats() {
+  getType() {
     return this.http.get(`${this.baseUrl}/list`);
   }
 
-  addContract(contract: Contract) {
-    return this.http.post(`${this.baseUrl}/add`, contract);
+  addType(type: InsuranceType) {
+    return this.http.post(`${this.baseUrl}/add`, type);
   }
 
-  updateContract(contract: Contract) {
-    return this.http.post(`${this.baseUrl}/update`, contract);
+  updateType(type: InsuranceType) {
+    return this.http.post(`${this.baseUrl}/update`, type);
   }
 
-  deleteContract(id: any) {
+  deleteType(id: any) {
     return this.http.get(`${this.baseUrl}/delete/${id}`);
   }
 
   find(field: string, value: string) {
     return this.http.get(`${this.baseUrl}/find/${field}/${value}`);
   }
-
-
 
 }
