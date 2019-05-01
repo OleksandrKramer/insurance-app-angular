@@ -12,7 +12,7 @@
   </select>
 </div>
 <br>
-<div class="input-group">
+<div class="input-group" style="width:75%">
   <input *ngIf="contractToUpdate == null" class="form-control" type="text" [(ngModel)]="value" placeholder="Search" name="valueToSearch" aria-describedby="button-addon4"/>
 </div>
 <br>
@@ -32,11 +32,11 @@
     <option *ngFor="let filiation of filiations" [value]="filiation.id">{{filiation.name}}</option>
   </select>
   <br>
-  <select class="custom-select" [(ngModel)]="contract.insuranceType.id" name="insType_id" required>
+  <select class="custom-select" [(ngModel)]="contract.insuranceType" name="insType_id" required>
     <option *ngFor="let type of types" [value]="type.id">{{type.name}}</option>
   </select>
   <br>
-  <select class="custom-select" [(ngModel)]="contract.agent.id" name="agent_id" required>
+  <select class="custom-select" [(ngModel)]="contract.agent" name="agent_id" required>
     <option *ngFor="let agent of agents" [value]="agent.id">{{agent.surname}}</option>
   </select>
   <br>

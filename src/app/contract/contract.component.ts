@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, ViewEncapsulation} from '@angular/core';
 import {Contract} from '../model/contract';
 import {AgentService} from '../service/agent.service';
 import {FiliationService} from '../service/filiation.service';
@@ -8,7 +8,8 @@ import {ContractService} from '../service/contract.service';
 @Component({
   selector: 'app-contract',
   templateUrl: './contract.component.html',
-  styleUrls: ['./contract.component.css']
+  styleUrls: ['./contract.component.css'],
+  encapsulation: ViewEncapsulation.None
 })
 export class ContractComponent implements OnInit {
 
@@ -60,7 +61,7 @@ export class ContractComponent implements OnInit {
     });
   }
 
-  create(contract: Contract) {
+  create() {
     this.contractService.addContract(this.contract).subscribe(() => {
       this.load();
     });
