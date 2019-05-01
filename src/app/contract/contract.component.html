@@ -1,0 +1,118 @@
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<br>
+<h2>Search Options</h2>
+<div class="input-group mb-3">
+  <div class="input-group-prepend">
+    <label class="input-group-text" for="inputGroupSelect01">Options</label>
+  </div>
+  <select *ngIf="contractToUpdate == null" class="custom-select" id="inputGroupSelect01" [(ngModel)]="field" name="fieldToSearch">
+    <option value="name">Search by Agent's surname</option>
+    <option value="phone">Search by Insurance Type</option>
+    <option value="address">Search by BaseTaryf</option>
+  </select>
+</div>
+<br>
+<div class="input-group">
+  <input *ngIf="contractToUpdate == null" class="form-control" type="text" [(ngModel)]="value" placeholder="Search" name="valueToSearch" aria-describedby="button-addon4"/>
+</div>
+<br>
+<div class="input-group-append" id="button-addon4">
+  <button *ngIf="contractToUpdate == null" class="btn btn-outline-secondary" (click)="find()">Search</button>
+  <button *ngIf="contractToUpdate == null" class="btn btn-outline-secondary" (click)="load()">Cancel</button>
+</div>
+<h2>Add Contract</h2>
+<form *ngIf="contractToUpdate == null" name="form" (ngSubmit)="f.form.valid && create(f)" #f="ngForm" novalidate>
+  <input class="form-control" type="date" [(ngModel)]="contract.date" name="date" required/>
+  <br>
+  <input class="form-control" type="number" [(ngModel)]="contract.amountPay" name="amountPay" placeholder="AmountPay" required/>
+  <br>
+  <input class="form-control" type="number" [(ngModel)]="contract.baseTaryfPay" name="baseTaryfPay" placeholder="BaseTaryfPay" required/>
+  <br>
+  <select class="custom-select" [(ngModel)]="contract.filiation" name="fil_id" required>
+    <option *ngFor="let filiation of filiations" [value]="filiation.id">{{filiation.name}}</option>
+  </select>
+  <br>
+  <select class="custom-select" [(ngModel)]="contract.insuranceType.id" name="insType_id" required>
+    <option *ngFor="let type of types" [value]="type.id">{{type.name}}</option>
+  </select>
+  <br>
+  <select class="custom-select" [(ngModel)]="contract.agent.id" name="agent_id" required>
+    <option *ngFor="let agent of agents" [value]="agent.id">{{agent.surname}}</option>
+  </select>
+  <br>
+  <button class="btn btn-primary">Add</button>
+</form>
+<br><br>
+
+<table class="table">
+  <thead align="center">
+   <th>ID</th>
+   <th>Date</th>
+  <th>AmountPay</th>
+   <th>BaseTaryfPay</th>
+  <th>Filiation</th>
+  <th>InsuranceType</th>
+   <th>Agent</th>
+  <th>Delete</th>
+  <th>Edit</th>
+  </thead>
+  <tbody>
+  <tr *ngFor="let row of contracts" align="center">
+     <td>
+       <span *ngIf="contractToUpdate == null || contractToUpdate.id !=row.id">{{row.id}}</span>
+       <span *ngIf="contractToUpdate!= null && contractToUpdate.id == row.id">
+        <input class="form-control" type="text" [(ngModel)]="contractToUpdate.id" name="idUpd"/>
+      </span>
+     </td>
+     <td>
+       <span *ngIf="contractToUpdate  == null || contractToUpdate .id !=row.id">{{row.date}}</span>
+       <span *ngIf="contractToUpdate  != null && contractToUpdate .id == row.id">
+        <input class="form-control" type="date" [(ngModel)]="contractToUpdate.date" name="dateUpd"/>
+      </span>
+     </td>
+     <td>
+       <span *ngIf="contractToUpdate == null || contractToUpdate.id !=row.id">{{row.amountPay}}</span>
+       <span *ngIf="contractToUpdate !=null && contractToUpdate.id == row.id">
+        <input class="form-control" type="number" [(ngModel)]="contractToUpdate.amountPay" name="amountPayUpd"/>
+      </span>
+     </td>
+     <td>
+       <span *ngIf="contractToUpdate == null || contractToUpdate.id !=row.id">{{row.baseTaryfPay}}</span>
+       <span *ngIf="contractToUpdate !=null && contractToUpdate.id == row.id">
+        <input class="form-control" type="number" [(ngModel)]="contractToUpdate.baseTaryfPay" name="baseTaryfPayUpd"/>
+      </span>
+     </td>
+     <td>
+       <span *ngIf="contractToUpdate == null || contractToUpdate.id !=row.id">{{row.filiation.name}}</span>
+       <span *ngIf="contractToUpdate !=null && contractToUpdate.id == row.id">
+       <select class="custom-select" [(ngModel)]="contractToUpdate.filiation" name="filUpd">
+         <option *ngFor="let fil of filiations" [value]="fil.id">{{fil.name}}</option>
+       </select>
+      </span>
+     </td>
+     <td>
+       <span *ngIf="contractToUpdate == null || contractToUpdate.id !=row.id">{{row.insuranceType.name}}</span>
+       <span *ngIf="contractToUpdate !=null && contractToUpdate.id == row.id">
+       <select class="custom-select" [(ngModel)]="contractToUpdate.insuranceType" name="insUpd">
+         <option *ngFor="let tps of types" [value]="tps.id">{{tps.name}}</option>
+       </select>
+      </span>
+     </td>
+     <td>
+       <span *ngIf="contractToUpdate == null || contractToUpdate.id !=row.id">{{row.agent.surname}}</span>
+       <span *ngIf="contractToUpdate !=null && contractToUpdate.id == row.id">
+       <select class="custom-select" [(ngModel)]="contractToUpdate.agent" name="agentUpd">
+         <option *ngFor="let ags of agents" [value]="ags.id">{{ags.surname}}</option>
+       </select>
+      </span>
+     </td>
+     <td *ngIf="contractToUpdate == null">
+       <button class="btn btn-outline-danger" (click)="delete(row.id)">Delete</button>
+     </td>
+     <td *ngIf="contractToUpdate  == null">
+       <button class="btn btn-outline-warning" (click)="update(row)">Edit</button>
+     </td>
+  </tr>
+  </tbody>
+</table>
+<button *ngIf="contractToUpdate != null" class="btn btn-primary" (click)="save()">Save</button>

@@ -12,13 +12,15 @@ import {FormsModule} from '@angular/forms';
 import { AgentComponent } from './agent/agent.component';
 import { InsuranceTypeComponent } from './insurance-type/insurance-type.component';
 import { FiliationComponent } from './filiation/filiation.component';
+import { ContractComponent } from './contract/contract.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     AgentComponent,
     InsuranceTypeComponent,
-    FiliationComponent
+    FiliationComponent,
+    ContractComponent
   ],
   imports: [
     BrowserModule,
