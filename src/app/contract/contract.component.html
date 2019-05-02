@@ -15,12 +15,13 @@
 <br>
 <div class="input-group" style="width:75%">
   <input *ngIf="contractToUpdate == null" class="form-control" type="text" [(ngModel)]="value" placeholder="Search" name="valueToSearch" aria-describedby="button-addon4"/>
+  <div class="input-group-append" id="button-addon4">
+    <button *ngIf="contractToUpdate == null" class="btn btn-outline-secondary" (click)="find()">Search</button>
+    <button *ngIf="contractToUpdate == null" class="btn btn-outline-secondary" (click)="load()">Cancel</button>
+  </div>
 </div>
 <br>
-<div class="input-group-append" id="button-addon4">
-  <button *ngIf="contractToUpdate == null" class="btn btn-outline-secondary" (click)="find()">Search</button>
-  <button *ngIf="contractToUpdate == null" class="btn btn-outline-secondary" (click)="load()">Cancel</button>
-</div>
+
 <h2>Add Contract</h2>
 <form *ngIf="contractToUpdate == null" name="form" (ngSubmit)="f.form.valid && create(f)" #f="ngForm" novalidate>
   <input class="form-control" type="date" [(ngModel)]="contract.date" name="date" required/>

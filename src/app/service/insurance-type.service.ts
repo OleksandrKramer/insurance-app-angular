@@ -7,7 +7,7 @@ import {InsuranceType} from '../model/insuranceType';
 })
 export class InsuranceTypeService {
 
-  baseUrl = 'http://localhost:8080/api/insurancetype';
+  baseUrl = 'https://insurance-company-app.herokuapp.com/api/insurancetype';
 
   constructor(private http: HttpClient) { }
 

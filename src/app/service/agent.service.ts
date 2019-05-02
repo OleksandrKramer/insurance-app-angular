@@ -8,7 +8,7 @@ import {Observable} from 'rxjs';
 })
 export class AgentService {
 
-  baseUrl = 'http://localhost:8080/api/agent';
+  baseUrl = 'https://insurance-company-app.herokuapp.com/api/agent';
 
   constructor(private http: HttpClient) { }
 
