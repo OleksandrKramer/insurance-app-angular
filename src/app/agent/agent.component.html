@@ -57,12 +57,7 @@
   </thead>
   <tbody>
   <tr *ngFor="let row of agents" align="center">
-    <td>
-      <span *ngIf="agentToUpdate == null || agentToUpdate.id !=row.id">{{row.id}}</span>
-      <span *ngIf="agentToUpdate !=null && agentToUpdate.id == row.id">
-        <input class="form-control" type="text" [(ngModel)]="agentToUpdate.id" name="idUpd"/>
-      </span>
-    </td>
+    <td>{{row.id}}</td>
     <td>
       <span *ngIf="agentToUpdate== null || agentToUpdate.id !=row.id">{{row.surname}}</span>
       <span *ngIf="agentToUpdate != null && agentToUpdate.id == row.id">
