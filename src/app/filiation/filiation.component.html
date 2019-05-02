@@ -5,7 +5,7 @@
   <div class="input-group-prepend">
     <label class="input-group-text" for="inputGroupSelect01">Options</label>
   </div>
-  <select *ngIf="typeToUpdate == null" class="custom-select" id="inputGroupSelect01" [(ngModel)]="field" name="fieldToSearch">
+  <select *ngIf="filToUpdate == null" class="custom-select" id="inputGroupSelect01" [(ngModel)]="field" name="fieldToSearch">
     <option value="name">Search by Name</option>
     <option value="phone">Search by Phone</option>
     <option value="address">Search by Address</option>
@@ -77,7 +77,7 @@
   </tbody>
 </table>
 <h3>Income is {{income}}</h3>
-<input *ngIf="supplyToUpdate == null" class="form-control" type="date" [(ngModel)]="date" name="income" />
+<input *ngIf="filToUpdate == null" class="form-control" type="date" [(ngModel)]="date" name="income" />
 
 <button *ngIf="filToUpdate == null " class="btn btn-primary" (click)="incomeByDate(date)">Count</button>
 <br><br>

@@ -6,20 +6,21 @@
     <label class="input-group-text" for="inputGroupSelect01">Options</label>
   </div>
   <select *ngIf="agentToUpdate == null" class="custom-select" id="inputGroupSelect01" [(ngModel)]="field" name="fieldToSearch">
-    <option value="firstname">Search by firstname</option>
-    <option value="phone">Search by Phone</option>
+    <option value="surname">Search by surtname</option>
     <option value="address">Search by Address</option>
-    <option value="filiation">Search by Filiation</option>
+    <option value="phone">Search by Phone</option>
+    <option value="filiation">Search by FiliationName</option>
+
   </select>
 </div>
 <br>
 <div class="input-group">
-  <input *ngIf="filToUpdate == null" class="form-control" type="text" [(ngModel)]="value" placeholder="Search" name="valueToSearch" aria-describedby="button-addon4"/>
+  <input *ngIf="agentToUpdate == null" class="form-control" type="text" [(ngModel)]="value" placeholder="Search" name="valueToSearch" aria-describedby="button-addon4"/>
 </div>
 <br>
 <div class="input-group-append" id="button-addon4">
-  <button *ngIf="filToUpdate == null" class="btn btn-outline-secondary" (click)="find()">Search</button>
-  <button *ngIf="filToUpdate == null" class="btn btn-outline-secondary" (click)="load()">Cancel</button>
+  <button *ngIf="agentToUpdate == null" class="btn btn-outline-secondary" (click)="find()">Search</button>
+  <button *ngIf="agentToUpdate == null" class="btn btn-outline-secondary" (click)="load()">Cancel</button>
 </div>
 <br>
 <h2>Add Agent</h2>
@@ -50,9 +51,9 @@
   <th>Address</th>
   <th>Phone</th>
   <th>Filiation</th>
-  <th>Salary</th>
   <th>Delete</th>
   <th>Edit</th>
+  <th>Salary</th>
   </thead>
   <tbody>
   <tr *ngFor="let row of agents" align="center">
@@ -111,6 +112,6 @@
     </td>
   </tbody>
 </table>
-<button *ngIf="contractToUpdate != null" class="btn btn-primary" (click)="save()">Save</button>
+<button *ngIf="agentToUpdate != null" class="btn btn-primary" (click)="save()">Save</button>
 
 
