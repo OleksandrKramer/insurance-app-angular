@@ -16,24 +16,25 @@
 <br>
 <div class="input-group">
   <input *ngIf="agentToUpdate == null" class="form-control" type="text" [(ngModel)]="value" placeholder="Search" name="valueToSearch" aria-describedby="button-addon4"/>
+  <div class="input-group-append" id="button-addon4">
+    <button *ngIf="agentToUpdate == null" class="btn btn-outline-secondary" (click)="find()">Search</button>
+    <button *ngIf="agentToUpdate == null" class="btn btn-outline-secondary" (click)="load()">Cancel</button>
+  </div>
 </div>
 <br>
-<div class="input-group-append" id="button-addon4">
-  <button *ngIf="agentToUpdate == null" class="btn btn-outline-secondary" (click)="find()">Search</button>
-  <button *ngIf="agentToUpdate == null" class="btn btn-outline-secondary" (click)="load()">Cancel</button>
-</div>
+
 <br>
 <h2>Add Agent</h2>
 <form *ngIf="agentToUpdate == null" name="form" (ngSubmit)="f.form.valid && create(f)" #f="ngForm" novalidate>
-  <input class="form-control" type="text" [(ngModel)]="agent.surname" name="surname" placeholder="Agent's surname" required/>
+  <input class="form-control" type="text" [(ngModel)]="agent.surname" name="surname" placeholder="Agent's surname" required maxlength="30"/>
   <br>
-  <input class="form-control" type="text" [(ngModel)]="agent.firstname" name="firstname" placeholder="Agent's firstname" required/>
+  <input class="form-control" type="text" [(ngModel)]="agent.firstname" name="firstname" placeholder="Agent's firstname" required maxlength="25" />
   <br>
-  <input class="form-control" type="text" [(ngModel)]="agent.patronymic" name="patronymic" placeholder="Agent's patronymic" required/>
+  <input class="form-control" type="text" [(ngModel)]="agent.patronymic" name="patronymic" placeholder="Agent's patronymic" required maxlength="25"/>
   <br>
-  <input class="form-control" type="text" [(ngModel)]="agent.address" name="address" placeholder="Agent's address" required/>
+  <input class="form-control" type="text" [(ngModel)]="agent.address" name="address" placeholder="Agent's address" required maxlength="25"/>
   <br>
-  <input class="form-control" type="text" [(ngModel)]="agent.phone" name="phone" placeholder="Agent's phone" required/>
+  <input class="form-control" type="text" [(ngModel)]="agent.phone" name="phone" placeholder="Agent's phone" required maxlength="13"/>
   <br>
   <select class="custom-select" [(ngModel)]="agent.filiation" name="fil_id" required>
     <option *ngFor="let filiation of filiations" [value]="filiation.id">{{filiation.name}}</option>
