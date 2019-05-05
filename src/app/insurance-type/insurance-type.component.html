@@ -37,11 +37,11 @@
   </thead>
   <tbody>
   <tr *ngFor="let row of types" align="center">
-    <td>
-      <span *ngIf="typeToUpdate == null || typeToUpdate.id !=row.id">{{row.id}}</span>
-      <span *ngIf="typeToUpdate !=null && typeToUpdate.id == row.id">
-        <input class="form-control" type="text" [(ngModel)]="typeToUpdate.id" name="idUpd"/>
-      </span>
+    <td>{{row.id}}
+      <!--<span *ngIf="typeToUpdate == null || typeToUpdate.id !=row.id">{{row.id}}</span>-->
+      <!--<span *ngIf="typeToUpdate !=null && typeToUpdate.id == row.id">-->
+        <!--<input class="form-control" type="text" [(ngModel)]="typeToUpdate.id" name="idUpd"/>-->
+      <!--</span>-->
     </td>
     <td>
       <span *ngIf="typeToUpdate == null || typeToUpdate.id !=row.id">{{row.name}}</span>

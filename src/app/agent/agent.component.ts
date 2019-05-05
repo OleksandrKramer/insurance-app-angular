@@ -78,7 +78,7 @@ export class AgentComponent implements OnInit {
       if (name === '') {
         this.salary = data;
       } else {
-        window.alert (` Salary of (${name}) ${data}`);
+        window.alert (` Salary of ${name} ${data}`);
       }
     });
   }

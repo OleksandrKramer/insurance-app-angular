@@ -25,7 +25,7 @@
 <br>
 <h2>Add Agent</h2>
 <form *ngIf="agentToUpdate == null" name="form" (ngSubmit)="f.form.valid && create(f)" #f="ngForm" novalidate>
-  <input class="form-control" type="text" [(ngModel)]="agent.surname" name="surname" placeholder="Agent's surname" required/>
+  <input class="form-control" type="text" [(ngModel)]="agent.surname" name="surname" placeholder="Agent's surname"  required/>
   <br>
   <input class="form-control" type="text" [(ngModel)]="agent.firstname" name="firstname" placeholder="Agent's firstname" required/>
   <br>
@@ -42,7 +42,7 @@
   <br>
 </form>
 <br>
-<table class="table">
+<table class="table" id="searchTextResults">
   <thead align="center">
   <th>ID</th>
   <th>Surname</th>
@@ -57,11 +57,11 @@
   </thead>
   <tbody>
   <tr *ngFor="let row of agents" align="center">
-    <td>
-      <span *ngIf="agentToUpdate == null || agentToUpdate.id !=row.id">{{row.id}}</span>
-      <span *ngIf="agentToUpdate !=null && agentToUpdate.id == row.id">
-        <input class="form-control" type="text" [(ngModel)]="agentToUpdate.id" name="idUpd"/>
-      </span>
+    <td>{{row.id}}
+      <!--<span *ngIf="agentToUpdate == null || agentToUpdate.id !=row.id">{{row.id}}</span>-->
+      <!--<span *ngIf="agentToUpdate !=null && agentToUpdate.id == row.id">-->
+        <!--<input class="form-control" type="text" [(ngModel)]="agentToUpdate.id" name="idUpd"/>-->
+      <!--</span>-->
     </td>
     <td>
       <span *ngIf="agentToUpdate== null || agentToUpdate.id !=row.id">{{row.surname}}</span>

@@ -59,11 +59,11 @@
   </thead>
   <tbody>
   <tr *ngFor="let row of contracts" align="center">
-     <td>
-       <span *ngIf="contractToUpdate == null || contractToUpdate.id !=row.id">{{row.id}}</span>
-       <span *ngIf="contractToUpdate!= null && contractToUpdate.id == row.id">
-        <input class="form-control" type="text" [(ngModel)]="contractToUpdate.id" name="idUpd"/>
-      </span>
+     <td>{{row.id}}
+       <!--<span *ngIf="contractToUpdate == null || contractToUpdate.id !=row.id">{{row.id}}</span>-->
+       <!--<span *ngIf="contractToUpdate!= null && contractToUpdate.id == row.id">-->
+        <!--<input class="form-control" type="text" [(ngModel)]="contractToUpdate.id" name="idUpd"/>-->
+      <!--</span>-->
      </td>
      <td>
        <span *ngIf="contractToUpdate  == null || contractToUpdate .id !=row.id">{{row.date}}</span>

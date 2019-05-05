@@ -44,11 +44,11 @@
   <tbody>
 
   <tr *ngFor="let row of filiations" align="center">
-    <td>
-      <span *ngIf="filToUpdate == null || filToUpdate.id !=row.id">{{row.id}}</span>
-      <span *ngIf="filToUpdate !=null && filToUpdate.id == row.id">
-        <input class="form-control" type="text" [(ngModel)]="filToUpdate.id" name="idUpd"/>
-      </span>
+    <td>{{row.id}}
+      <!--<span *ngIf="filToUpdate == null || filToUpdate.id !=row.id">{{row.id}}</span>-->
+      <!--<span *ngIf="filToUpdate !=null && filToUpdate.id == row.id">-->
+        <!--<input class="form-control" type="text" [(ngModel)]="filToUpdate.id" name="idUpd"/>-->
+      <!--</span>-->
     </td>
     <td>
       <span *ngIf="filToUpdate == null || filToUpdate.id !=row.id">{{row.name}}</span>
