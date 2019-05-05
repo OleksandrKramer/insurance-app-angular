@@ -7,7 +7,7 @@ import {Contract} from '../model/contract';
 })
 export class ContractService {
 
-  baseUrl = 'http://localhost:8080/api/contract';
+  baseUrl = 'https://insurance-company-app.herokuapp.com/api/contract';
 
   constructor(private http: HttpClient) { }
 

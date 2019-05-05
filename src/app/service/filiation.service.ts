@@ -8,7 +8,7 @@ import {Observable} from 'rxjs';
 })
 export class FiliationService {
 
-  baseUrl = 'http://localhost:8080/api/filiation';
+  baseUrl = 'https://insurance-company-app.herokuapp.com/api/filiation';
 
   constructor(private http: HttpClient) { }
 

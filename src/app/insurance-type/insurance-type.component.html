@@ -11,11 +11,10 @@
 <br>
 <div class="input-group">
   <input *ngIf="typeToUpdate == null" class="form-control" type="text" [(ngModel)]="value" placeholder="Search" name="valueToSearch" aria-describedby="button-addon4"/>
-</div>
-<br>
-<div class="input-group-append" id="button-addon4">
-  <button *ngIf="typeToUpdate == null" class="btn btn-outline-secondary" (click)="find()">Search</button>
-  <button *ngIf="typeToUpdate == null" class="btn btn-outline-secondary" (click)="load()">Cancel</button>
+  <div class="input-group-append" id="button-addon4">
+    <button *ngIf="typeToUpdate == null" class="btn btn-outline-secondary" (click)="find()">Search</button>
+    <button *ngIf="typeToUpdate == null" class="btn btn-outline-secondary" (click)="load()">Cancel</button>
+  </div>
 </div>
 <br>
 <form *ngIf="typeToUpdate == null" name="form" (ngSubmit)="f.form.valid && add(f)" #f="ngForm" novalidate>
