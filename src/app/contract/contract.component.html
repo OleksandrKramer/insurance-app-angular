@@ -11,7 +11,7 @@
   </select>
 </div>
 <br>
-<div class="input-group" style="width:75%">
+<div class="input-group">
   <input *ngIf="contractToUpdate == null" class="form-control" type="text" [(ngModel)]="value" placeholder="Search" name="valueToSearch" aria-describedby="button-addon4"/>
   <div class="input-group-append" id="button-addon4">
     <button *ngIf="contractToUpdate == null" class="btn btn-outline-secondary" (click)="find()">Search</button>

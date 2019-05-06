@@ -14,12 +14,12 @@
 <br>
 <div class="input-group">
   <input *ngIf="agentToUpdate == null" class="form-control" type="text" [(ngModel)]="value" placeholder="Search" name="valueToSearch" aria-describedby="button-addon4"/>
+  <div class="input-group-append" id="button-addon4">
+    <button *ngIf="agentToUpdate == null" class="btn btn-outline-secondary" (click)="find()">Search</button>
+    <button *ngIf="agentToUpdate == null" class="btn btn-outline-secondary" (click)="load()">Cancel</button>
+  </div>
 </div>
 <br>
-<div class="input-group-append" id="button-addon4">
-  <button *ngIf="agentToUpdate == null" class="btn btn-outline-secondary" (click)="find()">Search</button>
-  <button *ngIf="agentToUpdate == null" class="btn btn-outline-secondary" (click)="load()">Cancel</button>
-</div>
 <br>
 <h2>Add Agent</h2>
 <form *ngIf="agentToUpdate == null" name="form" (ngSubmit)="f.form.valid && create(f)" #f="ngForm" novalidate>
