@@ -23,9 +23,9 @@
 <br>
 <h2>Add Agent</h2>
 <form *ngIf="agentToUpdate == null" name="form" (ngSubmit)="f.form.valid && create(f)" #f="ngForm" novalidate>
-  <input class="form-control" type="text" [(ngModel)]="agent.surname"  name="surname" placeholder="Agent's surname" required maxlength="30"/>
+  <input class="form-control" type="text" [(ngModel)]="agent.surname"  name="surname" placeholder="Agent's surname" required maxlength="25"/>
   <br>
-  <input class="form-control" type="text" [(ngModel)]="agent.firstname" name="firstname" placeholder="Agent's firstname" required  maxlength="10"/>
+  <input class="form-control" type="text" [(ngModel)]="agent.firstname" name="firstname" placeholder="Agent's firstname" required  maxlength="15"/>
   <br>
   <input class="form-control" type="text" [(ngModel)]="agent.patronymic" name="patronymic" placeholder="Agent's patronymic" required  maxlength="20"/>
   <br>
