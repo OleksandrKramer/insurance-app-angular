@@ -1,9 +1,9 @@
-<h1>Managment System of Insurance Company</h1>
+<h1>Insurance Company</h1>
 <nav>
-  <a [routerLink]="['/insurancetype']" (click)="select(1)" [ngClass]="selected == 1 ? 'selected' : ''">Insurance Type List</a>
-  <a [routerLink]="['/filiation']" (click)="select(2)" [ngClass]="selected == 2 ? 'selected': ''">Filiation List</a>
-  <a [routerLink]="['/contract']" (click)="select(3)" [ngClass]="selected == 3 ? 'selected': ''">Contract List</a>
-  <a [routerLink]="['/agent']" (click)="select(4)" [ngClass]="selected == 4 ? 'selected': ''">Agent List</a>
+  <a [routerLink]="['/insurancetype']" class="btn btn-primary" (click)="select(1)" [ngClass]="selected == 1 ? 'selected' : ''">Insurance Type List</a>
+  <a [routerLink]="['/filiation']" class="btn btn-primary" (click)="select(2)" [ngClass]="selected == 2 ? 'selected': ''">Filiation List</a>
+  <a [routerLink]="['/contract']" class="btn btn-primary" (click)="select(3)" [ngClass]="selected == 3 ? 'selected': ''">Contract List</a>
+  <a [routerLink]="['/agent']" class="btn btn-primary" (click)="select(4)" [ngClass]="selected == 4 ? 'selected': ''">Agent List</a>
 
 </nav>
 <router-outlet></router-outlet>

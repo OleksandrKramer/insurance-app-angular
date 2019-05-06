@@ -1,0 +1,15 @@
+nav{
+  display: block;
+  float: left;
+  margin-top: 10px;
+  margin-right: 50px;
+  margin-bottom: 20px;
+}
+nav a{
+  display: block;
+  float: left;
+  margin-right: 40px;
+  position: relative;
+
+}
+

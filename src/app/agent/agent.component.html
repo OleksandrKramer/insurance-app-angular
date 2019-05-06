@@ -1,6 +1,4 @@
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-<br>
-<h2>Search Options</h2>
 <div class="input-group mb-3">
   <div class="input-group-prepend">
     <label class="input-group-text" for="inputGroupSelect01">Options</label>
@@ -25,7 +23,7 @@
 <br>
 <h2>Add Agent</h2>
 <form *ngIf="agentToUpdate == null" name="form" (ngSubmit)="f.form.valid && create(f)" #f="ngForm" novalidate>
-  <input class="form-control" type="text" [(ngModel)]="agent.surname" name="surname" placeholder="Agent's surname"  required/>
+  <input class="form-control" type="text" [(ngModel)]="agent.surname" name="surname" placeholder="Agent's surname" required/>
   <br>
   <input class="form-control" type="text" [(ngModel)]="agent.firstname" name="firstname" placeholder="Agent's firstname" required/>
   <br>
@@ -42,7 +40,7 @@
   <br>
 </form>
 <br>
-<table class="table" id="searchTextResults">
+<table class="table">
   <thead align="center">
   <th>ID</th>
   <th>Surname</th>
@@ -82,15 +80,15 @@
       </span>
     </td>
     <td>
-      <span *ngIf="agentToUpdate== null || agentToUpdate.id !=row.id">{{row.address}}</span>
-      <span *ngIf="agentToUpdate != null && agentToUpdate.id == row.id">
-        <input class="form-control" type="text" [(ngModel)]="agentToUpdate.address" name="addressUpd"/>
-      </span>
-    </td>
-    <td>
       <span *ngIf="agentToUpdate== null || agentToUpdate.id !=row.id">{{row.phone}}</span>
       <span *ngIf="agentToUpdate != null && agentToUpdate.id == row.id">
         <input class="form-control" type="text" [(ngModel)]="agentToUpdate.phone" name="phoneUpd"/>
+      </span>
+    </td>
+    <td>
+      <span *ngIf="agentToUpdate== null || agentToUpdate.id !=row.id">{{row.address}}</span>
+      <span *ngIf="agentToUpdate != null && agentToUpdate.id == row.id">
+        <input class="form-control" type="text" [(ngModel)]="agentToUpdate.address" name="addressUpd"/>
       </span>
     </td>
     <td>
