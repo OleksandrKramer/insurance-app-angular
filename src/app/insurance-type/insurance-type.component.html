@@ -18,9 +18,9 @@
 </div>
 <br>
 <form *ngIf="typeToUpdate == null" name="form" (ngSubmit)="f.form.valid && add(f)" #f="ngForm" novalidate>
-  <input class="form-control" type="text" [(ngModel)]="type.name" name="name" placeholder="Name of Type" required/>
+  <input class="form-control" type="text" [(ngModel)]="type.name" name="name" placeholder="Name of Type" required maxlength="15"/>
   <br>
-  <input class="form-control" type="number" [(ngModel)]="type.agentPercent" name="agentPercent" placeholder="agentPercent" required/>
+  <input class="form-control" type="number" [(ngModel)]="type.agentPercent" name="agentPercent" placeholder="agentPercent" required maxlength="5"/>
   <br>
   <button class="btn btn-primary">Add</button>
   <br>

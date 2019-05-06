@@ -20,11 +20,11 @@
 <br>
 <h2>Add Filiation</h2>
 <form *ngIf="filToUpdate == null" name="form" (ngSubmit)="f.form.valid && add(f)" #f="ngForm" novalidate>
-  <input class="form-control" type="text" [(ngModel)]="filiation.name" name="name" placeholder="Filiation's name" required/>
+  <input class="form-control" type="text" [(ngModel)]="filiation.name" name="name" placeholder="Filiation's name" required maxlength="20"/>
   <br>
-  <input class="form-control" type="text" [(ngModel)]="filiation.phone" name="phone" placeholder="Filiation's phone" required/>
+  <input class="form-control" type="text" [(ngModel)]="filiation.phone" name="phone" placeholder="Filiation's phone" required maxlength="14"/>
   <br>
-  <input class="form-control" type="text" [(ngModel)]="filiation.address" name="address" placeholder="Filiation's address" required/>
+  <input class="form-control" type="text" [(ngModel)]="filiation.address" name="address" placeholder="Filiation's address" required maxlength="30"/>
   <button class="btn btn-primary">Add</button>
   <br>
 </form>

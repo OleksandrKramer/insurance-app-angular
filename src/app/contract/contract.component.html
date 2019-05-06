@@ -24,9 +24,9 @@
 <form *ngIf="contractToUpdate == null" name="form" (ngSubmit)="f.form.valid && create(f)" #f="ngForm" novalidate>
   <input class="form-control" type="date" [(ngModel)]="contract.date" name="date" required/>
   <br>
-  <input class="form-control" type="number" [(ngModel)]="contract.amountPay" name="amountPay" placeholder="AmountPay" required/>
+  <input class="form-control" type="number" [(ngModel)]="contract.amountPay" name="amountPay" placeholder="AmountPay" required maxlength="7"/>
   <br>
-  <input class="form-control" type="number" [(ngModel)]="contract.baseTaryfPay" name="baseTaryfPay" placeholder="BaseTaryfPay" required/>
+  <input class="form-control" type="number" [(ngModel)]="contract.baseTaryfPay" name="baseTaryfPay" placeholder="BaseTaryfPay" required maxlength="7" />
   <br>
   <select class="custom-select" [(ngModel)]="contract.filiation" name="fil_id" required>
     <option *ngFor="let filiation of filiations" [value]="filiation.id">{{filiation.name}}</option>
